@@ -60,7 +60,7 @@ The script will automatically install all required dependencies for TAK Server.
 
 2. **Enter the repo directory:**
    ```sh
-   cd installTAK
+   cd TAKServer-install-script
    ```
 
 3. **Make the script executable (if necessary):**
