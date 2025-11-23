@@ -1,125 +1,122 @@
-📡 installTAK for Raspberry Pi 4 (TAK Server 5.3)
+# installTAK for Raspberry Pi 4 (TAK Server 5.3)
 
-This repository contains a modified version of the installTAK script tailored specifically for the Raspberry Pi 4 Model B running Raspberry Pi OS (Debian 13 “Trixie”).
-It automates the installation and initial configuration of TAK Server 5.3.
+This repository provides a customized `installTAK` script specifically adapted for the Raspberry Pi 4 Model B running Raspberry Pi OS (Debian 12 or 13, "Bookworm" or "Trixie").  
+It automates the installation and initial setup of TAK Server 5.3, with Pi-optimized tweaks and required dependencies.
 
-The original script and concept come from:
-🔗 https://mytecknet.com/lets-build-a-tak-server/
+> **Credit:** This project adapts the original installer and workflow from [mytecknet.com](https://mytecknet.com/lets-build-a-tak-server/).  
+> All rights to the original author. This repository only customizes the script for Pi hardware.
 
-All credit goes to the original author — this repo simply customizes the script for Pi hardware and includes additional required packages.
+---
 
-🚀 Features
+## 🚀 Features
 
-Automated installation of TAK Server 5.3
+- **Automated Installation:** TAK Server 5.3 setup is fully scripted.
+- **Pi Hardware Optimized:** Tweaks for Raspberry Pi 4 Model B are included.
+- **Dependency Management:** All required packages are preinstalled.
+- **Simplified Setup Wizard:** Guided prompts help with first-time configuration.
+- **Compatible OS:** Supports Raspberry Pi OS (Debian 12 "Bookworm" or 13 "Trixie").
+- **Workflow Match:** Follows the original installTAK wizard logic.
 
-Raspberry Pi 4 optimized setup
+---
 
-Additional required dependencies pre-installed
+## 📦 Requirements
 
-Simplified first-time server configuration
+**TAK Server installation files must be manually downloaded from [tak.gov](https://tak.gov) (login required).  
+_These files cannot be redistributed via this repository due to licensing restrictions._**
 
-Compatible with Debian 12/13–based Raspberry Pi OS
+**After downloading from TAK.gov, place the following files in the same directory as the script:**
+- `takserver_5.3-RELEASE30_all.deb`
+- `takserver-public-gpg.key`
+- `deb_policy.pol`
 
-Follows the same workflow as the original installTAK wizard
-
-📦 Requirements
-
-You must download the official TAK Server Linux package files from
-🔗 https://tak.gov
-
-(Login and approval required)
-
-Place these three files in the same directory as the installTAK script:
-
-takserver_5.3-RELEASE30_all.deb
-takserver-public-gpg.key
-deb_policy.pol
-
-
-These are NOT included in this repository due to licensing restrictions.
-
-🧰 Prerequisites
-
-Before running the script, ensure your Raspberry Pi meets:
-
-Device: Raspberry Pi 4 Model B
-
-OS: Raspberry Pi OS (Debian GNU/Linux 12 or 13)
-
-RAM: 4GB or higher recommended
-
-Internet connection required for package installation
-
-The script automatically installs the dependencies needed to run TAK Server.
-
-📥 Installation
-
-Clone the repository:
-
-git clone https://github.com/<your-username>/installTAK.git
-
-
-Enter the directory:
-
-cd installTAK
-
-
-Make the script executable (if needed):
-
-chmod +x installTAK
-
-
-Place the required TAK.gov files in the same folder:
-
+ 
+**Example directory:**
+```
 installTAK/
  ├── installTAK
  ├── takserver_5.3-RELEASE30_all.deb
  ├── takserver-public-gpg.key
  └── deb_policy.pol
+```
+---
 
+## 🧰 Prerequisites
 
-Run the installer:
+- **Device:** Raspberry Pi 4 Model B
+- **OS:** Raspberry Pi OS (Debian GNU/Linux 12 or 13)
+- **RAM:** 4GB or higher recommended
+- **Connectivity:** Internet access required for package installation
 
-./installTAK takserver_5.3-RELEASE30_all.deb
+The script will automatically install all required dependencies for TAK Server.
 
-🧙‍♂️ Installation Wizard
+---
 
-After launching the script, a wizard will guide you through:
+## 📥 Installation
 
-setting admin credentials
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/<your-username>/installTAK.git
+   ```
 
-enabling encrypted connections
+2. **Enter the repo directory:**
+   ```sh
+   cd installTAK
+   ```
 
-certificate configuration
+3. **Make the script executable (if necessary):**
+   ```sh
+   chmod +x installTAK
+   ```
 
-federation options
+4. **Place the three TAK.gov files in the same folder.**
 
-TAK Server first-run setup
+5. **Run the installer:**
+   ```sh
+   ./installTAK takserver_5.3-RELEASE30_all.deb
+   ```
 
-Follow the interactive prompts to complete your installation.
+---
 
-ℹ️ Notes
+## 🧙‍♂️ Installation Wizard
 
-This script is not officially supported by TAK.gov.
+After launching the script, you'll be guided through:
 
-Some Raspberry Pi environments may require tweaks for systemd service integration.
+- Admin credential setup
+- Enabling encrypted connections
+- Certificate management
+- Federation options
+- Initial server configuration
 
-If issues occur, refer to the original guide and TAK documentation.
+Just follow the interactive prompts to complete your installation.
 
-🙏 Credits
+---
 
-This project is based on and inspired by the original work at:
+## ℹ️ Notes
 
-🔗 https://mytecknet.com/lets-build-a-tak-server/
+- This script and repository are **NOT** officially supported by TAK.gov.
+- Some Raspberry Pi environments may need tweaks for systemd integration.
+- If you encounter issues, refer to the [original guide](https://mytecknet.com/lets-build-a-tak-server/) and TAK Server documentation.
 
-All rights belong to the original creator.
-This repo simply provides a Raspberry Pi–specific adaptation.
+---
 
-🛠️ Contributions
+## 🙏 Credits
 
-Feel free to open issues or submit pull requests to improve Raspberry Pi compatibility.
+Much respect and gratitude to the original author of the installTAK server guide and script:  
+[https://mytecknet.com/lets-build-a-tak-server/](https://mytecknet.com/lets-build-a-tak-server/)
 
-📜 License
+This project simply adapts the installer for Raspberry Pi compatibility.
 
-This project modifies and redistributes an installer script for personal/hobby use.
-TAK Server binaries are not included and must be obtained from TAK.gov.
+---
+
+## 🛠️ Contributions
+
+PRs and issues are welcome, especially for improving compatibility with Raspberry Pi hardware or newer Pi OS versions.
+
+---
+
+## 📜 License
+
+This project adapts and redistributes an installer script for personal/hobby use.  
+**TAK Server binaries are NOT included and must be obtained directly from TAK.gov by authorized users.**
+
+---
