@@ -182,7 +182,8 @@ Install(){
             dnf install java-17-openjdk-devel -y 2>&1 | tee -a $logfile
         ;;
         ubuntu|debian)
-            apt-get install openjdk-17-jre -y 2>&1 | tee -a $logfile
+            # apt-get install openjdk-17-jre -y 2>&1 | tee -a $logfile
+            apt-get install temurin-17-jdk -y 2>&1 | tee -a $logfile
         ;;
     esac
     echo -e "${GREEN}[5/8] Java-OpenJDK Task Complete.${NC}" 2>&1 | tee -a $logfile
@@ -199,7 +200,8 @@ Install(){
             servicePostgreSQL="postgresql-15"
         ;;
         ubuntu|debian)
-            apt-get install ./$takBinary -y --reinstall 2>&1 | tee -a $logfile
+            dpkg -i --force-all $takBinary 2>&1 | tee -a $logfile
+            # apt-get install ./$takBinary -y --reinstall 2>&1 | tee -a $logfile
             servicePostgreSQL="postgresql"
         ;;
     esac
@@ -251,7 +253,8 @@ fedhubInstall(){
             dnf install java-17-openjdk-devel -y 2>&1 | tee -a $logfile
         ;;
         ubuntu|debian)
-            apt-get install openjdk-17-jre -y 2>&1 | tee -a $logfile
+            # apt-get install openjdk-17-jre -y 2>&1 | tee -a $logfile
+            apt-get install temurin-17-jdk -y 2>&1 | tee -a $logfile
         ;;
     esac
     echo -e "${GREEN}[1/5] Java-OpenJDK Task Complete.${NC}" 2>&1 | tee -a $logfile
@@ -1290,7 +1293,7 @@ executeConfiguration(){
                 apply-takfederation
                 apply-takConnector
                 apply-webTAKOptions
-                echo -e "${YELLOW}Configuring TAK Server for first run.${NC}"
+                echo -e "${YELLOW}Configuring TAK Server for first run (1st/executeConfiguration fn).${NC}"
                 echo -e "\n# Configuring TAK Server for first run.\n" &>> $logfile
                 touch $dir/logs/takserver-messaging.log
                 chown -R tak:tak $dir
