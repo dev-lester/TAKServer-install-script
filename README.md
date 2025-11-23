@@ -55,7 +55,7 @@ The script will automatically install all required dependencies for TAK Server.
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/<your-username>/installTAK.git
+   git clone https://github.com/dev-lester/TAKServer-install-script.git
    ```
 
 2. **Enter the repo directory:**
